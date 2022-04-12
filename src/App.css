@@ -3,3 +3,25 @@
   justify-content: center;
   height: 100vh;
 }
+
+.helloUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.helloUser h1 {
+  color: rgb(65, 65, 65);
+}
+
+.helloUser button {
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgb(13, 179, 129);
+  color: #fff;
+  border-radius: 3px;
+  margin-top: 1rem;
+}

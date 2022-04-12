@@ -7,7 +7,7 @@ import axios from 'axios'
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const handlePassword = useCallback(() => setShowPassword(!showPassword))
-    const handleNewLoggedIn = useContext(LoggedInUsersContext) 
+    const {loggedInUsers ,setLoggedInUsers} = useContext(LoggedInUsersContext) 
     
     return (
      <Formik
@@ -37,7 +37,7 @@ const Login = () => {
               return user.email === values.email && user.password === values.password}))
           if (newLoggedIn) {
             alert(`${newLoggedIn.name} خوش آمدید`)
-            handleNewLoggedIn(newLoggedIn)
+            setLoggedInUsers(newLoggedIn)
           }else {
             alert('اطلاعات وارد شده نادرست است!')
           }
