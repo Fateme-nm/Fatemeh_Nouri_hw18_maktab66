@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "name": "فاطمه",
+      "family": "نوری مطلق",
+      "email": "fatemehnm1378@gmail.com",
+      "password": "123456",
+      "education": "کارشناسی",
+      "eduPlace": "دانشگاه قم",
+      "province": "قم",
+      "city": "قم",
+      "id": 1
+    }
+  ]
+}
