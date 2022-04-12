@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LoggedInUsersContextProvider from './contexts/LoggedInUsersContext';
+import LoggedInUserContextProvider from './contexts/LoggedInUserContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LoggedInUsersContextProvider>
+    <LoggedInUserContextProvider>
       <App />
-    </LoggedInUsersContextProvider>
+    </LoggedInUserContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

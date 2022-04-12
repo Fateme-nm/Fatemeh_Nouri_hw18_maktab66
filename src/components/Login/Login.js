@@ -1,13 +1,13 @@
 import React, {useState, useCallback, useContext} from 'react';
 import { Formik } from 'formik';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
-import { LoggedInUsersContext } from '../../contexts/LoggedInUsersContext';
+import { LoggedInUserContext } from '../../contexts/LoggedInUserContext';
 import axios from 'axios'
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const handlePassword = useCallback(() => setShowPassword(!showPassword))
-    const {loggedInUsers ,setLoggedInUsers} = useContext(LoggedInUsersContext) 
+    const {loggedInUser ,setLoggedInUser} = useContext(LoggedInUserContext) 
     
     return (
      <Formik
@@ -37,7 +37,7 @@ const Login = () => {
               return user.email === values.email && user.password === values.password}))
           if (newLoggedIn) {
             alert(`${newLoggedIn.name} خوش آمدید`)
-            setLoggedInUsers(newLoggedIn)
+            setLoggedInUser(newLoggedIn)
           }else {
             alert('اطلاعات وارد شده نادرست است!')
           }

@@ -1,17 +1,17 @@
 import React, {useContext, useCallback} from 'react';
-import { LoggedInUsersContext } from '../../contexts/LoggedInUsersContext'; 
+import { LoggedInUserContext } from '../../contexts/LoggedInUserContext'; 
 import Forms from '../Forms/Forms';
 
 const WhitCheckingLogin = Component => {
     return function WhitCheckingLoginComponent({...props}) {
-        const {loggedInUsers ,setLoggedInUsers} = useContext(LoggedInUsersContext)
-        const handleLogOut = useCallback(() => setLoggedInUsers(null))
+        const {loggedInUser ,setLoggedInUser} = useContext(LoggedInUserContext)
+        const handleLogOut = useCallback(() => setLoggedInUser(null))
 
         return (
             <>
-                {loggedInUsers === null ? <Forms /> : 
+                {loggedInUser === null ? <Forms /> : 
                     <Component 
-                        name={loggedInUsers.name} 
+                        name={loggedInUser.name} 
                         handleLogOut={handleLogOut}
                         {...props}/>}
             </>
