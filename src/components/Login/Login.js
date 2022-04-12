@@ -1,13 +1,13 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useContext} from 'react';
 import { Formik } from 'formik';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { LoggedInUsersContext } from '../../contexts/LoggedInUsersContext';
 import axios from 'axios'
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const [exist, setExist] = useState(false)
-    
     const handlePassword = useCallback(() => setShowPassword(!showPassword))
+    const handleNewLoggedIn = useContext(LoggedInUsersContext) 
     
     return (
      <Formik
@@ -28,16 +28,18 @@ const Login = () => {
         }
          return errors;
        }}
-       onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-            setSubmitting(false);
-            axios.get('http://localhost:3001/users')
-                .then(res => res.data).then(users => setExist(users.includes(user => {
-                  return user.email == values.email && user.password == values.password
-                }))).then(alert(exist ? 'خوش آمدید' : 'اطلاعات وارد شده نادرست است!'))
-                .then(console.log(exist))
-            
-         }, 400);
+       onSubmit={async (values, { setSubmitting }) => {
+          setSubmitting(false);
+          const newLoggedIn = await axios.get('http://localhost:3001/users')
+            .then(res => res.data)
+            .then(users => users.find(user => {
+              return user.email === values.email && user.password === values.password}))
+          if (newLoggedIn) {
+            alert(`${newLoggedIn.name} خوش آمدید`)
+            handleNewLoggedIn(newLoggedIn)
+          }else {
+            alert('اطلاعات وارد شده نادرست است!')
+          }
        }}
      >
        {({
@@ -59,7 +61,7 @@ const Login = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
-                placeholder='ایمیل'
+                placeholder='* ایمیل'
                 />
             </div>
             <p className='error'>
@@ -72,7 +74,7 @@ const Login = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.password}
-                    placeholder='رمز عبور'
+                    placeholder='* رمز عبور'
                 />
                 {showPassword ? 
                     <BsFillEyeFill className='stylePass' onClick={handlePassword}/> :
