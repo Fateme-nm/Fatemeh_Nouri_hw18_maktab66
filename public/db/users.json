@@ -54,6 +54,17 @@
       "province": "تهران",
       "city": "تهران",
       "id": 5
+    },
+    {
+      "name": "ساناز",
+      "family": "بهرامی",
+      "email": "sanaz@gmail.com",
+      "password": "123123",
+      "education": "کاردانی",
+      "eduPlace": "دانشگاه ازاد",
+      "province": "تهران",
+      "city": "قدس",
+      "id": 6
     }
   ]
 }
