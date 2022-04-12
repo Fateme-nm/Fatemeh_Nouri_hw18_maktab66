@@ -28,8 +28,9 @@ const Login = () => {
         }
          return errors;
        }}
-       onSubmit={async (values, { setSubmitting }) => {
+       onSubmit={async (values, { setSubmitting, resetForm }) => {
           setSubmitting(false);
+          resetForm()
           const newLoggedIn = await axios.get('http://localhost:3001/users')
             .then(res => res.data)
             .then(users => users.find(user => {

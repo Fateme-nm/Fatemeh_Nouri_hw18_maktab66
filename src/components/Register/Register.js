@@ -60,10 +60,12 @@ const Register = () => {
           city: ''
         },
         validate: validate,
-        onSubmit: (values, { setSubmitting }) => {
+        onSubmit: (values, { setSubmitting, resetForm }) => {
             setSubmitting(false);
+            resetForm()
             axios.post('http://localhost:3001/users', values)
                 .catch(err => console.log(err))
+            alert('ثبت نام شما با موفقیت انجام شد!')
         },
       });
 
