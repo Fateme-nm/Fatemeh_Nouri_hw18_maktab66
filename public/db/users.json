@@ -65,6 +65,17 @@
       "province": "تهران",
       "city": "قدس",
       "id": 6
+    },
+    {
+      "name": "محمد",
+      "family": "موسوی",
+      "email": "mohammadmosavi@gmail.com",
+      "password": "111111",
+      "education": "کارشناسی ارشد",
+      "eduPlace": "دانشگاه ازاد",
+      "province": "زنجان",
+      "city": "زنجان",
+      "id": 7
     }
   ]
 }

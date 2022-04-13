@@ -3,7 +3,6 @@ import WithCheckingLogin from "./components/HOC/WithCheckingLogin";
 import './App.css'
 
 function App({name, handleLogOut}) {
-  console.log("App rendering...")
     return (
       <div className="App">
         <div className="helloUser">
