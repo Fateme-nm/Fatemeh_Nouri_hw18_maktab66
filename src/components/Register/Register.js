@@ -60,13 +60,12 @@ const Register = () => {
           city: ''
         },
         validate: validate,
-        onSubmit: (values, { setSubmitting, resetForm }) => {
+        onSubmit: async (values, { setSubmitting }) => {
             setSubmitting(false);
-            resetForm()
-            axios.post('http://localhost:3001/users', values)
+            await axios.post('http://localhost:3001/users', values)
                 .catch(err => console.log(err))
-            alert('ثبت نام شما با موفقیت انجام شد!')
-        },
+                .then(alert('ثبت نام شما با موفقیت انجام شد!'))
+        }
       });
 
       return (
@@ -74,8 +73,8 @@ const Register = () => {
         <div className='container-width_50'>
             <div className='field width_50'>
                 <input
-                    name="name"
                     type="text"
+                    name="name"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.firstName}
@@ -87,8 +86,8 @@ const Register = () => {
             </div>
             <div className='field width_50'>
                 <input
-                    name="family"
                     type="text"
+                    name="family"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.lastName}
