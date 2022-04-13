@@ -2,8 +2,8 @@ import React, {useContext, useCallback} from 'react';
 import { LoggedInUserContext } from '../../contexts/LoggedInUserContext'; 
 import Forms from '../Forms/Forms';
 
-const WhitCheckingLogin = Component => {
-    return function WhitCheckingLoginComponent({...props}) {
+const WithCheckingLogin = Component => {
+    return function WithCheckingLoginComponent({...props}) {
         const {loggedInUser ,setLoggedInUser} = useContext(LoggedInUserContext)
         const handleLogOut = useCallback(() => setLoggedInUser(null))
 
@@ -19,4 +19,4 @@ const WhitCheckingLogin = Component => {
     }
 }
 
-export default WhitCheckingLogin;
+export default WithCheckingLogin;

@@ -1,5 +1,5 @@
 import React from "react";
-import WhitCheckingLogin from "./components/HOC/WhitCheckingLogIn";
+import WithCheckingLogin from "./components/HOC/WithCheckingLogin";
 import './App.css'
 
 function App({name, handleLogOut}) {
@@ -14,4 +14,4 @@ function App({name, handleLogOut}) {
     )
 }
 
-export default WhitCheckingLogin(App);
+export default WithCheckingLogin(App);
