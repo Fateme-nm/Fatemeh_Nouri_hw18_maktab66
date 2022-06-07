@@ -206,7 +206,7 @@ const Register = () => {
              ثبت نام
            </button>
         </form>
-      );
+     );
 }
 
 export default Register;
